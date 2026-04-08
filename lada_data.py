@@ -1,13 +1,17 @@
 import pandas as pd
 from sqlalchemy import create_engine
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 1. Configuracion de Conexion
-usuario = 'dbmasteruser'
-password = '!3Ht4}.}P1+8<B4Efy||R7D~?i`wEPs7'
-host = 'ls-d3d93b2afa426ca80dbc79750f6fa955eaf3a3b6.cs9gyyc0moxd.us-east-1.rds.amazonaws.com'
-base_datos = 'ventas-pullman'
-tabla = 'pasajes'
+usuario = os.getenv('DB_USER', 'dbmasteruser')
+password = os.getenv('DB_PASSWORD', '!3Ht4}.}P1+8<B4Efy||R7D~?i`wEPs7')
+host = os.getenv('DB_HOST', 'ls-d3d93b2afa426ca80dbc79750f6fa955eaf3a3b6.cs9gyyc0moxd.us-east-1.rds.amazonaws.com')
+base_datos = os.getenv('DB_NAME', 'ventas-pullman')
+tabla = os.getenv('DB_TABLE', 'pasajes')
 
 # Creamos el motor de conexion
 engine = create_engine(f'mysql+pymysql://{usuario}:{password}@{host}/{base_datos}')

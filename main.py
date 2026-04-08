@@ -3,11 +3,20 @@ from fastapi.responses import HTMLResponse
 from sqlalchemy import create_engine, text
 import pandas as pd
 import io
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="API Pullman Bus - Reportes")
 
 # 1. Configuración de la base de datos
-DB_URL = "mysql+pymysql://root:@localhost:3306/ventas-pullman"
+usuario = os.getenv('DB_USER', 'root')
+password = os.getenv('DB_PASSWORD', '')
+host = os.getenv('DB_HOST', 'localhost:3306')
+base_datos = os.getenv('DB_NAME', 'ventas-pullman')
+
+DB_URL = f"mysql+pymysql://{usuario}:{password}@{host}/{base_datos}"
 engine = create_engine(DB_URL)
 
 # Ruta Principal: Muestra el formulario HTML
