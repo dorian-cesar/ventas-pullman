@@ -3,9 +3,9 @@ from sqlalchemy import create_engine
 import time
 
 # 1. Configuracion de Conexion
-usuario = 'root'
-password = ''
-host = 'localhost'
+usuario = 'dbmasteruser'
+password = '!3Ht4}.}P1+8<B4Efy||R7D~?i`wEPs7'
+host = 'ls-d3d93b2afa426ca80dbc79750f6fa955eaf3a3b6.cs9gyyc0moxd.us-east-1.rds.amazonaws.com'
 base_datos = 'ventas-pullman'
 tabla = 'pasajes'
 
